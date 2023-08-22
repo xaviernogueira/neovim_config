@@ -1,9 +1,9 @@
 # neovim_config
 
 ## TODO:
-[ ] Add an LSP for Python.
-[ ] Get [`nvim-treesitter`](https://github.com/nvim-treesitter/nvim-treesitter) for syntax highlighting. This requires having a C compiler in PATH.
-[ ] Get [harpoon](https://github.com/ThePrimeagen/harpoon)
+- [ ] Add an LSP for Python.
+- [ ] Get [`nvim-treesitter`](https://github.com/nvim-treesitter/nvim-treesitter) for syntax highlighting. This requires having a C compiler in PATH.
+- [ ] Get [harpoon](https://github.com/ThePrimeagen/harpoon)
 
 ## Includes
 * [`packer.nvim`](https://github.com/wbthomason/packer.nvim): For plugin managment.
