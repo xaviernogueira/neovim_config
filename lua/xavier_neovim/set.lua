@@ -27,5 +27,3 @@ vim.opt.updatetime = 50
 -- keep track of column 80
 vim.opt.colorcolumn = "80"
 
-
-

@@ -1,7 +1,8 @@
 # neovim_config
 
 ## TODO:
-- [ ] Add an LSP for Python.
+- [ ] Add a LSP for Python.
+- [ ] Add fugitive for Git.
 
 ## Includes
 * [`packer.nvim`](https://github.com/wbthomason/packer.nvim): For plugin managment.
