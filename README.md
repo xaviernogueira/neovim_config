@@ -1,6 +1,7 @@
 # neovim_config
 
 ## TODO:
+- [ ] Use [`venv-selector`](https://github.com/linux-cultist/venv-selector.nvim) for virtual environment selection.
 - [ ] Stick with it as is and see what we should add as we go.
 
 ## Includes
