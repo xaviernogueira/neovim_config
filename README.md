@@ -11,6 +11,8 @@
 * [`copilot.vim`](https://github.com/github/copilot.vim): Github copilot -> requires subscription.
 * [harpoon](https://github.com/ThePrimeagen/harpoon): For quick file access.
 * [`nvim-treesitter`](https://github.com/nvim-treesitter/nvim-treesitter): For syntax highlighting and LSP. Requires C compiler in PATH.
+* [`nvim-treesitter-context`](https://github.com/nvim-treesitter/nvim-treesitter-context): Allows scrolling with context.
+
 
 ## Remaps
 * `<leader>` = Space bar.
