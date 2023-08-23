@@ -1,2 +1,3 @@
 require("xavier_neovim")
-print("Hello Xavier")
+require("xavier_neovim.plugins")
+print("Hello Xavier, lets code!")
