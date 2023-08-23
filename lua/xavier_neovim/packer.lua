@@ -59,4 +59,6 @@ return require('packer').startup(function(use)
           {'rafamadriz/friendly-snippets'},
       }
   }
+
+-- switch virtual environments without restarting
 end)
