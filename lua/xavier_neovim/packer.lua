@@ -58,12 +58,7 @@ return require('packer').startup(function(use)
           {'L3MON4D3/LuaSnip'},
           {'rafamadriz/friendly-snippets'},
       }
-    }
-      use {
-        'nvim-tree/nvim-tree.lua',
-        requires = {
-            'nvim-tree/nvim-web-devicons',
-        }
-      }
+  }
+
 -- switch virtual environments without restarting
 end)

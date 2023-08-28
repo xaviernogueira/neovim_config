@@ -1,6 +1,7 @@
 -- relative and absolute line numbers
 vim.opt.nu = true
 vim.opt.relativenumber = true
+vim.api.nvim_set_hl(0, 'LineNr', { fg = 'white'})
 
 -- no wrapping
 vim.opt.wrap = false
@@ -25,11 +26,4 @@ vim.opt.updatetime = 50
 
 -- keep track of column 80
 vim.opt.colorcolumn = "80"
-
--- disable netrw at the very start of your init.lua
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
--- set termguicolors to enable highlight groups
-vim.opt.termguicolors = true
 
