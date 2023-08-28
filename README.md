@@ -14,6 +14,7 @@
 * [`nvim-treesitter-context`](https://github.com/nvim-treesitter/nvim-treesitter-context): Allows scrolling with context.
 * [`vim-fugitive`](https://github.com/tpope/vim-fugitive): Allows git to be accessed via `:G ...`.
 * [`lsp-zero`](https://github.com/VonHeikemen/lsp-zero.nvim): Pre-set config for an LSP, I ensured the install of [`pyright`](https://microsoft.github.io/pyright/#/).
+* [`tree`](https://github.com/nvim-tree/nvim-tree.lua): A file explorer sidebar.
 
 ## General Normal Mode Remaps
 * `<leader>` = Space bar.
@@ -32,3 +33,4 @@
 * `K` = Show hover info.
 * `cntrl+h` = Show variable signature.
 * `<leader>vrn` = Rename variable.
+
