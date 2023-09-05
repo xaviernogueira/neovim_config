@@ -1,7 +1,6 @@
 # neovim_config
 
 ## TODO:
-- [ ] Use [`venv-selector`](https://github.com/linux-cultist/venv-selector.nvim) for virtual environment selection.
 - [ ] Stick with it as is and see what we should add as we go.
 
 ## Includes
@@ -14,6 +13,7 @@
 * [`nvim-treesitter-context`](https://github.com/nvim-treesitter/nvim-treesitter-context): Allows scrolling with context.
 * [`vim-fugitive`](https://github.com/tpope/vim-fugitive): Allows git to be accessed via `:G ...`.
 * [`lsp-zero`](https://github.com/VonHeikemen/lsp-zero.nvim): Pre-set config for an LSP, I ensured the install of [`pyright`](https://microsoft.github.io/pyright/#/).
+* [`venv-selector`](https://github.com/linux-cultist/venv-selector.nvim) for Python virtual environment selection.
 
 ## General Normal Mode Remaps
 * `<leader>` = Space bar.
@@ -25,6 +25,7 @@
 * `<leader>a` = Harpoons the current file.
 * `<leader>1,2,3,4` = Harpoon slot hot keys.
 * `cntrl+s` = Write current file (`:w` alias).
+* `<leader>vs` = Browse/select a Python virtual environment.
 
 ## LSP over buffer remans
 * `cntrl+]` = Next item.
@@ -34,3 +35,6 @@
 * `K` = Show hover info.
 * `cntrl+h` = Show variable signature.
 * `<leader>vrn` = Rename variable.
+
+## Config notes
+* for `venv-selector` one needs to add paths to venv locations in `after/venv.lua`. See [here](https://github.com/linux-cultist/venv-selector.nvim)

@@ -174,6 +174,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\xrnogueira\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
   },
+  ["venv-selector.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\xrnogueira\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\venv-selector.nvim",
+    url = "https://github.com/linux-cultist/venv-selector.nvim"
+  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "C:\\Users\\xrnogueira\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-fugitive",
