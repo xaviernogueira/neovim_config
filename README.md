@@ -19,10 +19,12 @@
 * `<leader>` = Space bar.
 * `<leader>pv` = Return to file tree.
 * `<leader>pf` = Fuzzy find all project files.
-* `<cntrl+p>` = Fuzzy find only git tracked files.
+* `cntrl+p` = Fuzzy find only git tracked files.
 * `<leader>ps` = Searches files for a word (requires [`ripgrep`](https://github.com/BurntSushi/ripgrep)).
 * `<leader>h` = Toggles harpoon menu.
 * `<leader>a` = Harpoons the current file.
+* `<leader>1,2,3,4` = Harpoon slot hot keys.
+* `cntrl+s` = Write current file (`:w` alias).
 
 ## LSP over buffer remans
 * `cntrl+]` = Next item.
