@@ -1,7 +1,7 @@
 require 'nvim-treesitter.install'.compilers = { "gcc" }
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
-  ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "python", "sql", "toml", "markdown" },
+  ensure_installed = { "c", "rust", "lua", "vim", "python", "sql", "toml", "markdown" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
