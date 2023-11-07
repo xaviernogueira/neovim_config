@@ -14,6 +14,7 @@
 * [`vim-fugitive`](https://github.com/tpope/vim-fugitive): Allows git to be accessed via `:G ...`.
 * [`lsp-zero`](https://github.com/VonHeikemen/lsp-zero.nvim): Pre-set config for an LSP, I ensured the install of [`pyright`](https://microsoft.github.io/pyright/#/).
 * [`venv-selector`](https://github.com/linux-cultist/venv-selector.nvim) for Python virtual environment selection.
+* [`vim-python-pep8-indent`](https://github.com/Vimjas/vim-python-pep8-indent): Fixes python auto-indenting via PEP8 standards.
 
 ## General Normal Mode Remaps
 * `<leader>` = Space bar.
