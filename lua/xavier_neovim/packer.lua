@@ -69,4 +69,7 @@ return require('packer').startup(function(use)
             "mfussenegger/nvim-dap-python",
         },
     }
+    
+    -- to fix python indenting to be pep8
+    use { "Vimjas/vim-python-pep8-indent" }
 end)
