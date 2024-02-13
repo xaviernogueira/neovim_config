@@ -39,3 +39,5 @@
 
 ## Config notes
 * for `venv-selector` one needs to add paths to venv locations in `after/venv.lua`. See [here](https://github.com/linux-cultist/venv-selector.nvim)
+* To get `pyright` working, you need to install it with `npm`.
+* **To set this up on a fresh machine:** start by running `lua/xavier_neovim/set.lua` -> `lua/xavier_neovim/remap.lua` -> `lua/xavier_neovim/packer.lua` -> `lua/xavier_neovim/init.lua` 
