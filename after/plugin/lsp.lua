@@ -5,6 +5,7 @@ lsp.preset("recommended")
 -- make sure we have python support
 lsp.ensure_installed({
     'pyright',
+    'sqlls'
 })
 
 -- fix undefined global vim (stolen from ThePrimeagen
