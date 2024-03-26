@@ -5,7 +5,11 @@ lsp.preset("recommended")
 -- make sure we have python support
 lsp.ensure_installed({
     'pyright',
-    'sqlls'
+    'lua_ls',
+    'sqlls',
+    'yamlls',
+    'jsonls',
+    'rust_analyzer',
 })
 
 -- fix undefined global vim (stolen from ThePrimeagen
