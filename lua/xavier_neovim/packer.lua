@@ -29,7 +29,6 @@ return require('packer').startup(function(use)
             ts_update()
         end,
     }
-    use { "nvim-treesitter/playground" }
 
     -- allows for better scrolling
     use { "nvim-treesitter/nvim-treesitter-context" }
@@ -63,13 +62,11 @@ return require('packer').startup(function(use)
     -- switch virtual environments without restarting
     use {
         "linux-cultist/venv-selector.nvim",
-        dependencies = { 
-            "neovim/nvim-lspconfig",
+        dependencies = {
             "nvim-telescope/telescope.nvim",
             "mfussenegger/nvim-dap-python",
         },
     }
-    
     -- to fix python indenting to be pep8
     use { "Vimjas/vim-python-pep8-indent" }
 end)
