@@ -7,8 +7,7 @@
 * [`packer.nvim`](https://github.com/wbthomason/packer.nvim): For plugin managment.
 * [`telescope.nvim`](https://github.com/nvim-telescope/telescope.nvim): For fuzzy finding.
 * [`tokyonight.nvim`](https://github.com/folke/tokyonight.nvim): Colorscheme, set to "night".
-* [`copilot.vim`](https://github.com/github/copilot.vim): Github copilot -> requires subscription.
-* [harpoon](https://github.com/ThePrimeagen/harpoon): For quick file access.
+* [`harpoon`](https://github.com/ThePrimeagen/harpoon): For quick file access.
 * [`nvim-treesitter`](https://github.com/nvim-treesitter/nvim-treesitter): For syntax highlighting and LSP. Requires C compiler in PATH.
 * [`nvim-treesitter-context`](https://github.com/nvim-treesitter/nvim-treesitter-context): Allows scrolling with context.
 * [`vim-fugitive`](https://github.com/tpope/vim-fugitive): Allows git to be accessed via `:G ...`.
@@ -39,5 +38,4 @@
 
 ## Config notes
 * for `venv-selector` one needs to add paths to venv locations in `after/venv.lua`. See [here](https://github.com/linux-cultist/venv-selector.nvim)
-* To get `pyright` working, you need to install it with `npm`.
 * **To set this up on a fresh machine:** start by running `lua/xavier_neovim/set.lua` -> `lua/xavier_neovim/remap.lua` -> `lua/xavier_neovim/packer.lua` -> `lua/xavier_neovim/init.lua` 

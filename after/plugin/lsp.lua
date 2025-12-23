@@ -1,9 +1,23 @@
 local lsp = require("lsp-zero")
 lsp.preset("recommended")
 
--- make sure we have python support
+-- register ty as our custom python LSP
+local lspconfig = require('lspconfig')
+local configs = require('lspconfig.configs')
+
+if not configs.ty then
+  configs.ty = {
+    default_config = {
+      cmd = {'ty', 'server', 'stdio'},
+      filetypes = {'python'},
+--      root_dir = lspconfig.util.root_pattern('pyproject.toml', 'setup.py', '.git'),
+      settings = {},
+    },
+  }
+end
+
 lsp.ensure_installed({
-    'pyright',
+    'ty',
     'lua_ls',
     'sqlls',
     'yamlls',
