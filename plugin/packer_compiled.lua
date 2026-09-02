@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/xavi/.cache/nvim/packer_hererocks/2.1.1761727121/share/lua/5.1/?.lua;/home/xavi/.cache/nvim/packer_hererocks/2.1.1761727121/share/lua/5.1/?/init.lua;/home/xavi/.cache/nvim/packer_hererocks/2.1.1761727121/lib/luarocks/rocks-5.1/?.lua;/home/xavi/.cache/nvim/packer_hererocks/2.1.1761727121/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/xavi/.cache/nvim/packer_hererocks/2.1.1761727121/lib/lua/5.1/?.so"
+local package_path_str = "/home/xavi/.cache/nvim/packer_hererocks/2.1.1767980792/share/lua/5.1/?.lua;/home/xavi/.cache/nvim/packer_hererocks/2.1.1767980792/share/lua/5.1/?/init.lua;/home/xavi/.cache/nvim/packer_hererocks/2.1.1767980792/lib/luarocks/rocks-5.1/?.lua;/home/xavi/.cache/nvim/packer_hererocks/2.1.1767980792/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/xavi/.cache/nvim/packer_hererocks/2.1.1767980792/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -99,6 +99,11 @@ _G.packer_plugins = {
     path = "/home/xavi/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
+  ["cmp-vimtex"] = {
+    loaded = true,
+    path = "/home/xavi/.local/share/nvim/site/pack/packer/start/cmp-vimtex",
+    url = "https://github.com/micangl/cmp-vimtex"
+  },
   cmp_luasnip = {
     loaded = true,
     path = "/home/xavi/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
@@ -114,10 +119,20 @@ _G.packer_plugins = {
     path = "/home/xavi/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/theprimeagen/harpoon"
   },
+  ["img-clip.nvim"] = {
+    loaded = true,
+    path = "/home/xavi/.local/share/nvim/site/pack/packer/start/img-clip.nvim",
+    url = "https://github.com/HakonHarnes/img-clip.nvim"
+  },
   ["lsp-zero.nvim"] = {
     loaded = true,
     path = "/home/xavi/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
     url = "https://github.com/VonHeikemen/lsp-zero.nvim"
+  },
+  ["luasnip-latex-snippets.nvim"] = {
+    loaded = true,
+    path = "/home/xavi/.local/share/nvim/site/pack/packer/start/luasnip-latex-snippets.nvim",
+    url = "https://github.com/iurimateus/luasnip-latex-snippets.nvim"
   },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
@@ -128,6 +143,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/xavi/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
+  },
+  ["nabla.nvim"] = {
+    loaded = true,
+    path = "/home/xavi/.local/share/nvim/site/pack/packer/start/nabla.nvim",
+    url = "https://github.com/jbyuki/nabla.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -183,6 +203,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/xavi/.local/share/nvim/site/pack/packer/start/vim-python-pep8-indent",
     url = "https://github.com/Vimjas/vim-python-pep8-indent"
+  },
+  vimtex = {
+    loaded = true,
+    path = "/home/xavi/.local/share/nvim/site/pack/packer/start/vimtex",
+    url = "https://github.com/lervag/vimtex"
   }
 }
 

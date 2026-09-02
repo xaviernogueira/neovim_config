@@ -7,8 +7,13 @@ return require('packer').startup(function(use)
 
     -- rapid file switching
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.2',
-        -- or                            , branch = '0.1.x',
+        'nvim-telescope/telescope.nvim', tag = 'v0.2.2',
+        -- bumped from 0.1.2: 0.2.x previewer supports the nvim-treesitter
+        -- `main` rewrite (uses vim.treesitter.start); 0.1.2 called the
+        -- removed ft_to_lang() API and threw in the previewer.
+        -- NOTE: the `v` prefix is required. telescope tagged bare through
+        -- 0.1.8 and v-prefixed from v0.1.9 on, so a plain '0.2.2' is not a
+        -- resolvable revision and packer's checkout fails.
         requires = { {'nvim-lua/plenary.nvim'} }
     }
     use { "theprimeagen/harpoon" }
@@ -22,12 +27,13 @@ return require('packer').startup(function(use)
     }
 
     -- treesitter for syntax highlighting
+    -- NOTE: on the `main` branch, install.update() is an async task object, not
+    -- a callable returned by update({with_sync=true}) like it was on `master`.
+    -- The old hook threw "attempt to call a table value" on every PackerSync;
+    -- :TSUpdate drives the async task properly.
     use {
         'nvim-treesitter/nvim-treesitter',
-        run = function()
-            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-            ts_update()
-        end,
+        run = ':TSUpdate',
     }
 
     -- allows for better scrolling
@@ -69,4 +75,23 @@ return require('packer').startup(function(use)
     }
     -- to fix python indenting to be pep8
     use { "Vimjas/vim-python-pep8-indent" }
+
+    -- LaTeX editing: compilation, forward/inverse search, motions
+    use { "lervag/vimtex" }
+
+    -- Castel-style math snippets (// -> \frac, sr -> ^2). needs autosnippets
+    -- turned on in LuaSnip, which vimtex.lua does.
+    use {
+        "iurimateus/luasnip-latex-snippets.nvim",
+        requires = { "L3MON4D3/LuaSnip", "lervag/vimtex" },
+    }
+
+    -- cmp source that completes \cite{} from the .bib and \ref{} from real labels
+    use { "micangl/cmp-vimtex" }
+
+    -- paste an image from the clipboard straight into a figure environment
+    use { "HakonHarnes/img-clip.nvim" }
+
+    -- render an equation as ascii art without compiling
+    use { "jbyuki/nabla.nvim" }
 end)

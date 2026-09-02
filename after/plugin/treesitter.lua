@@ -1,23 +1,22 @@
-require'nvim-treesitter'.install { "c", "lua", "vim", "vimdoc", "query", "python", "sql", "toml", "markdown", "yaml", "rust", "html"}
-require'nvim-treesitter.install'.compilers = { "gcc" }
-require'nvim-treesitter'.setup {
-  -- Install parsers synchronously (only applied to `ensure_installed`)
-  sync_install = false,
+-- NOTE: this is the nvim-treesitter `main` branch (the rewrite). The old
+-- `master`-branch options (highlight/auto_install/sync_install/ignore_install
+-- passed to setup{}) are silently ignored here, which is why highlighting was
+-- never actually starting -- you'd get legacy regex :syntax until a refresh.
+-- On `main`, we install parsers and start highlighting ourselves per buffer.
+-- (no compiler option on `main`: it shells out to the `tree-sitter` CLI, so the
+-- old install.compilers setting was a silent no-op and has been dropped.)
+require'nvim-treesitter'.install { "c", "lua", "vim", "vimdoc", "query", "python", "sql", "toml", "markdown", "yaml", "rust", "html", "hcl"}
 
-  -- Automatically install missing parsers when entering buffer
-  -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-  auto_install = true,
-
-  -- List of parsers to ignore installing (for "all")
-  ignore_install = { "javascript" },
-
-  ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
-  -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
-
-  highlight = {
-    enable = true,
- },
-}
+-- Start treesitter highlighting + indentation for any filetype that has a
+-- parser installed. vim.treesitter.start() errors when no parser exists, so we
+-- pcall it and only wire up indentexpr on success.
+vim.api.nvim_create_autocmd('FileType', {
+  callback = function(args)
+    if pcall(vim.treesitter.start, args.buf) then
+      vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    end
+  end,
+})
 require('treesitter-context').setup{
   enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
   max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.

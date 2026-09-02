@@ -1,16 +1,20 @@
 local lsp = require("lsp-zero")
 lsp.preset("recommended")
 
--- register ty as our custom python LSP
+-- register ty as our custom python LSP. lsp-zero v1 drives the old lspconfig
+-- "framework" (require('lspconfig').<server>.setup), which doesn't ship a ty
+-- config yet, so we register one here. NOTE: the server is started with
+-- `ty server` -- passing a `stdio` arg makes ty exit with an error.
 local lspconfig = require('lspconfig')
 local configs = require('lspconfig.configs')
 
 if not configs.ty then
   configs.ty = {
     default_config = {
-      cmd = {'ty', 'server', 'stdio'},
+      cmd = {'ty', 'server'},
       filetypes = {'python'},
---      root_dir = lspconfig.util.root_pattern('pyproject.toml', 'setup.py', '.git'),
+      root_dir = lspconfig.util.root_pattern('ty.toml', 'pyproject.toml', 'setup.py', 'setup.cfg', '.git'),
+      single_file_support = true,
       settings = {},
     },
   }
@@ -23,6 +27,37 @@ lsp.ensure_installed({
     'yamlls',
     'jsonls',
     'rust_analyzer',
+    'texlab',
+    'ltex',
+})
+
+-- texlab handles the *language* side of LaTeX (diagnostics, symbols, renaming a
+-- label everywhere). VimTeX owns compiling and viewing, so texlab's own build is
+-- turned off -- otherwise both of them drive latexmk and fight over the aux
+-- files. chktex is installed, so let texlab lint with it.
+lsp.configure('texlab', {
+    settings = {
+        texlab = {
+            build = { onSave = false },
+            chktex = { onOpenAndSave = true, onEdit = false },
+            forwardSearch = {
+                executable = 'zathura',
+                args = { '--synctex-forward', '%l:1:%f', '%p' },
+            },
+        },
+    },
+})
+
+-- ltex-ls is grammar/spell checking that understands LaTeX markup, so it flags
+-- prose mistakes without tripping over \begin{} and friends. NOTE: it is a java
+-- server and takes a few seconds to start on the first tex/markdown buffer.
+lsp.configure('ltex', {
+    settings = {
+        ltex = {
+            language = 'en-US',
+            additionalRules = { enablePickyRules = false },
+        },
+    },
 })
 
 -- fix undefined global vim (stolen from ThePrimeagen
@@ -64,11 +99,12 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
     vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
     vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
-    vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
-    vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
+    vim.keymap.set("n", "]d", function() vim.diagnostic.jump({ count = 1, float = true }) end, opts)
+    vim.keymap.set("n", "[d", function() vim.diagnostic.jump({ count = -1, float = true }) end, opts)
     vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
     vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
     vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
+    vim.keymap.set("n", "<leader>r", function() vim.cmd("LspRestart") end, opts)
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 
 end)
